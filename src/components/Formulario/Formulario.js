@@ -4,11 +4,13 @@ import ListaOpciones from "../ListaOpciones";
 import Boton from "../Boton";
 import { useState } from "react";
 
-const Formulario = () => {
+const Formulario = (props) => {
   const [nombre, actualizarNombre] = useState("");
   const [puesto, actualizarPuesto] = useState("");
   const [foto, actualizarFoto] = useState("");
   const [equipo, actualizarEquipo] = useState("Programacion");
+
+const {registrarColaborador} = props
 
   const manejarEnvio = (e) => {
     e.preventDefault();
@@ -19,8 +21,10 @@ const Formulario = () => {
       foto,
       equipo,
     };
-    console.log(datosAEnviar);
+    registrarColaborador(datosAEnviar);
   };
+
+  
   return (
     <section className="formulario">
       <form onSubmit={manejarEnvio}>
@@ -46,7 +50,11 @@ const Formulario = () => {
           valor={foto}
           actualizarValor={actualizarFoto}
         />
-        <ListaOpciones valor={equipo} actualizarEquipo={actualizarEquipo} />
+        <ListaOpciones
+          valor={equipo}
+          actualizarEquipo={actualizarEquipo}
+          equipos={props.equipos}
+        />
         <Boton>Crear colaborador</Boton>
       </form>
     </section>
