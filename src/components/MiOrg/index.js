@@ -6,7 +6,7 @@ import { useState } from 'react'
 
 const MiOrg = (props) =>{
 
-    console.log(props);
+    
     // const [nombre,actualizarNombre] = useState("Pablo")
     // const [mostrar,actualizarMostrar] = useState(true)
     // const manejarClick = () =>{
